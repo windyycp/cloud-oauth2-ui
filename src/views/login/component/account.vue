@@ -101,7 +101,7 @@ const state = reactive({
     userPassword: '',
     code: '',
     clientId: '',
-    clientCallbackUrl: 'http://localhost:8888/#/callback'
+    clientCallbackUrl: 'http://localhost:8888/callback'
   },
   loading: {
     signIn: false,
@@ -113,7 +113,7 @@ onMounted(() => {
   var publicPath = import.meta.env.VITE_PUBLIC_PATH;
   var clientId = import.meta.env.VITE_AUTH_CLIENT;
   var host = window.location.host;
-  var clientCallbackUrl = window.location.protocol + "//" + host + (publicPath === '/' ? '' : publicPath) + "/#/callback"
+  var clientCallbackUrl = window.location.protocol + "//" + host + (publicPath === '/' ? '' : publicPath) + "/callback"
   state.ruleForm.clientCallbackUrl = clientCallbackUrl;
   state.ruleForm.clientId = clientId;
   state.ruleForm.state = new Date().getTime();

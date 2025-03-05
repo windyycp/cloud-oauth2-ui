@@ -6,22 +6,24 @@
 
 import Axios from 'axios'
 import { onMounted } from 'vue'
+import {Session} from '/@/utils/storage';
 
 onMounted(() => {
     var clientId = import.meta.env.VITE_AUTH_CLIENT;
     var host = window.location.host;
-    if (host === 'demo.bortron.com') {
-        host = host + window.location.pathname;
-    }
-    var clientCallbackUrl = window.location.protocol + "//" + host + "/#/callback"
+    var clientCallbackUrl = window.location.protocol + "//" + host + "/callback"
     var callbackUrl = encodeURIComponent(clientCallbackUrl);
-    var authHost =  import.meta.env.VITE_AUTH_LOGIN;
+    var apiHost = import.meta.env.VITE_API_URL;
     var env = import.meta.env.VITE_ENV;
-    if (env === 'product') {
-        window.location.href = authHost + '/#/login?clientId=' + clientId;
-    } else {
-        window.location.href = authHost + '/#/login?clientId=' + clientId + "&clientCallbackUrl=" + callbackUrl;
-    }
+
+    // csrf 防护
+    var sessionState = new Date().getTime();
+    Session.set("state", sessionState);
+
+    window.location.href = apiHost 
+            + '/oauth2/login?state=' + sessionState
+            + '&redirect_uri=' + callbackUrl
+            + '&client_id=' + clientId;
 })
 
 

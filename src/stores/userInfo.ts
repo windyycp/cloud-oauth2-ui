@@ -27,7 +27,7 @@ export const useUserInfo = defineStore('userInfo', {
 				// 用户信息被清空时，返回login页
 				// 清除缓存/token等
 				Session.clear();
-				window.location.href = '/#/login';
+				window.location.href = '/login';
 			}
 		},
 		isAdmin(): boolean {

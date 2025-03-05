@@ -140,11 +140,11 @@ export const useThemeConfig = defineStore('themeConfig', {
 			 * 全局网站标题 / 副标题
 			 */
 			// 网站主标题（菜单导航、浏览器当前网页标题）
-			globalTitle: '科创储能综合运维平台',
+			globalTitle: '管理平台',
 			// 网站副标题（登录页顶部文字）
-			globalViceTitle: '科创储能综合运维平台',
+			globalViceTitle: '管理平台',
 			// 网站副标题（登录页顶部文字）
-			globalViceTitleMsg: '科创运维云',
+			globalViceTitleMsg: '管理平台',
 			// 默认初始语言，可选值"<zh-cn|en|zh-tw>"，默认 zh-cn
 			globalI18n: 'zh-cn',
 			// 默认全局组件大小，可选值"<large|'default'|small>"，默认 'large'

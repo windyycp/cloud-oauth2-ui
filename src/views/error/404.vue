@@ -13,7 +13,7 @@
 					</div>
 				</div>
 				<div class="right">
-					<img src="https://i.hd-r.cn/1a0d90a6c1e8b0184c7299dda713effd.png" />
+					<img src="https://support.heberjahiz.com/hc/article_attachments/21013076295570" />
 				</div>
 			</div>
 		</div>

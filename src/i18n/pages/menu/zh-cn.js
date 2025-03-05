@@ -19,7 +19,7 @@ export default {
 	"autoTest":"自动测试"
 },
 "menu": {
-	"globalTitle":"科创综合运维平台",
+	"globalTitle":"管理平台",
 	"userCenter":"个人中心",
 	"helperDoc":"帮助文档",
 	"webSite":"科创官网",

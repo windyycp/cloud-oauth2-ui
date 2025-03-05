@@ -18,35 +18,31 @@ const service: AxiosInstance = axios.create({
 // 添加请求拦截器
 service.interceptors.request.use(
     (config) => {
-        // 在发送请求之前做些什么 token
+
+        // 在发送请求之前添加token
         if (Session.get('token')) {
-            config.headers!['token'] = `${Session.get('token')}`;
+            config.headers!['Authorization'] = `Bearer ${Session.get('token')}`;
         }
 
-        // 带上监控云token
-        if (Session.get('jktoken')) {
-            config.headers!['Authorization'] = `Bearer ${Session.get('jktoken')}`;
-        }
-
-        // 根据请求路径切换不同的请求地址,默认为运维云地址
-        const MCSurlPreFixes = ["/Monitor","/Home","/Alarm","/External","/Product","/Cube"]
-        const matchedPrefix = MCSurlPreFixes.find(prefix => config.url?.indexOf(prefix) === 0);
+        // 根据请求路径切换不同的请求地址
+        const mcsUrlPreFixes = ["/Monitor"]
+        const mcsMatched = mcsUrlPreFixes.find(prefix => config.url?.indexOf(prefix) === 0);
         if (config.url?.indexOf("/file") === 0) {
             config.baseURL = import.meta.env.VITE_FILE_URL;
-        } else if(matchedPrefix){
+        } else if(mcsMatched){
             config.baseURL = import.meta.env.VITE_MCS_URL
         }
 
         // 请求page参数转为科创标准请求体
         if (config.method?.toLowerCase() === 'get' && config.params?.pageNum) {
             config.params = {
-                ...config.params,
-                page: config.params.pageNum,
+                ...config.params, page: config.params.pageNum,
             };
             delete config.params.pageNum
         }
         return config;
     },
+    
     (error) => {
         // 对请求错误做些什么
         return Promise.reject(error);
@@ -98,7 +94,7 @@ service.interceptors.response.use(
         } else {
             if (error.response.status === 401) {
                 Session.clear();
-                window.location.href = '/#' + import.meta.env.VITE_LOGIN_PATH;
+                window.location.href = import.meta.env.VITE_LOGIN_PATH;
                 return Promise.reject(error);
             }
             if (error.response.data) ElMessage.error(error.response.statusText || error.response.data.message);

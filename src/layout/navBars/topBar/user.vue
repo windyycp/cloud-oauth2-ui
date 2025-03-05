@@ -205,7 +205,7 @@ const onHandleCommandClick = (path: string) => {
               // 清除缓存/token等
               Session.clear();
               // 使用 reload 时，不需要调用 resetRoute() 重置路由
-              window.location.href = '/#/login';
+              window.location.href = '/login';
             }
           }).catch(() => {
             ElMessage.error('退出登录失败');
@@ -214,7 +214,7 @@ const onHandleCommandClick = (path: string) => {
           // // 清除缓存/token等
           // Session.clear();
           // // 使用 reload 时，不需要调用 resetRoute() 重置路由
-          // window.location.href = '/#/login';
+          // window.location.href = '/login';
         })
         .catch((e) => {
           console.log("logout:",e)

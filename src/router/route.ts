@@ -101,7 +101,8 @@ export const staticRoutes : Array<RouteRecordRaw> = [
 	{
 		path: '/login',
 		name: 'login',
-		component: () => import('/@/views/login/index.vue'),
+		// component: () => import('/@/views/login/index.vue'),
+		component: () => import('/@/views/login/component/login.vue'),
 		meta: {
 			title: '登录',
 		},
