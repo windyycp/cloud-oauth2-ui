@@ -1,6 +1,6 @@
 export default {
 "router": {
-	"home":"工作台",
+	"home":"首页",
 	"userManagerMenu":"团队管理",
 	"userMenu":"用户管理",
 	"userList":"用户列表",
@@ -12,17 +12,14 @@ export default {
 	"systemMenu":"菜单管理",
 	"systemDic":"字典管理",
 	"log":"日志管理",
-	"testMenu":"自动测试",
 	"simple":"示例",
-	"simpleList":"示例列表",
-	"relationsimpleuser":"示例用户关联",
-	"autoTest":"自动测试"
+	"simpleList":"示例列表"
 },
 "menu": {
 	"globalTitle":"管理平台",
 	"userCenter":"个人中心",
 	"helperDoc":"帮助文档",
-	"webSite":"科创官网",
+	"webSite":"官网",
 	"logout":"退出登录"
 }
 };

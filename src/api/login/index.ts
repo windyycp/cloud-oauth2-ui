@@ -25,16 +25,16 @@ export function useLoginApi() {
 		},
 		signInAuth: (data: object) => {
 			return request({
-				baseURL: import.meta.env.VITE_AUTH_URL,
-				url: '/oauth/login',
+				// baseURL: import.meta.env.VITE_AUTH_URL,
+				url: '/oauth2/login',
 				method: 'post',
 				data:data,
 			});
 		},
 		signOutAuth: (params: object) => {
 			return request({
-				baseURL: import.meta.env.VITE_AUTH_URL,
-				url: '/oauth/logout',
+				// baseURL: import.meta.env.VITE_AUTH_URL,
+				url: '/oauth2/logout',
 				method: 'get',
 				params:params,
 			});

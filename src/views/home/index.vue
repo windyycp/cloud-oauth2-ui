@@ -4,7 +4,7 @@
 
 <template>
   <div>
-    home page
+    <p style="margin-left: 20px;">欢迎</p>
   </div>
 </template>
 

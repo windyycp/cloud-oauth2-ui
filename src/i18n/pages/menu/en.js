@@ -12,7 +12,7 @@ export default {
 	"systemDic":"Dictionary",
 	"log":"System Logs",
 	"simple":"simple",
-	"autoTest":"autoTest"
+	"simpleList":"Simple List"
 },
 "menu": {
 	"globalTitle":"KorEMS",

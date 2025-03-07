@@ -33,7 +33,7 @@ service.interceptors.request.use(
             config.baseURL = import.meta.env.VITE_MCS_URL
         }
 
-        // 请求page参数转为科创标准请求体
+        // 请求page参数转为标准请求体
         if (config.method?.toLowerCase() === 'get' && config.params?.pageNum) {
             config.params = {
                 ...config.params, page: config.params.pageNum,

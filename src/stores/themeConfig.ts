@@ -106,7 +106,7 @@ export const useThemeConfig = defineStore('themeConfig', {
 			// 是否开启水印
 			isWartermark: false,
 			// 水印文案
-			wartermarkText: '科创',
+			wartermarkText: 'YCP',
 
 			/**
 			 * 其它设置

@@ -41,6 +41,7 @@ onMounted(() => {
 
   var token = $router.currentRoute.value.query.access_token;
   if (token) {
+    // 如果加密token，则需要在此解密
     Session.set('token', token);
     // 获取用户在权限中心的账号信息
     getUserInfo(token);
@@ -63,10 +64,10 @@ const getUserInfo = (token) => {
     // 存入用户信息到session
     Session.set('userInfo', user);
     if (userName !== 'admin' && (!user.roles || user.roles.length === 0)) {
-      $router.push("/401")
+      window.location.href = '/401';
       return
     }
-    $router.push("/home")
+    window.location.href = '/home';
   });
 }
 
